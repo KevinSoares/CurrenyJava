@@ -5,6 +5,7 @@
  */
 package lab1a;
 
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 /**
@@ -60,6 +61,10 @@ public class Lab1A {
         
         System.out.printf("Nickles: %d \n", nickleAmount);
         System.out.printf("Change: %f \n", changeAmount);
+        
+        
+        DecimalFormat df = new DecimalFormat("#.##");
+        changeAmount = Double.valueOf(df.format(changeAmount));
         
         while(changeAmount >= 0.01)
         {
