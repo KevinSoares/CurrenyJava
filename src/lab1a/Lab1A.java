@@ -18,60 +18,57 @@ public class Lab1A {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         // Variables
+        DecimalFormat df = new DecimalFormat("#.##");
         double purchasePrice;
         double changeAmount;
         int quaterCount = 0;
         int dimeAmount = 0;
         int nickleAmount = 0;
         int pennieAmount = 0;
-        
+
         Scanner input = new Scanner(System.in);
-        
+
         System.out.print("Enter the price of the purchase in cents ($1 or less): ");
         purchasePrice = input.nextDouble();
-        
+
         changeAmount = 1.0 - (purchasePrice / 100);
         System.out.printf("Change: %f \n", changeAmount);
-        
-        while(changeAmount >= 0.25)
-        {
+
+        while (changeAmount >= 0.25) {
             ++quaterCount;
             changeAmount -= 0.25;
+            changeAmount = Double.valueOf(df.format(changeAmount));
         }
-        
+
         System.out.printf("Quaters: %d \n", quaterCount);
         System.out.printf("Change: %f \n", changeAmount);
-        
-        while(changeAmount >= 0.10)
-        {
+
+        while (changeAmount >= 0.10) {
             ++dimeAmount;
             changeAmount -= 0.10;
+            changeAmount = Double.valueOf(df.format(changeAmount));
         }
-        
+
         System.out.printf("Dimes: %d \n", dimeAmount);
         System.out.printf("Change: %f \n", changeAmount);
-        
-        while(changeAmount >= 0.05)
-        {
+
+        while (changeAmount >= 0.05) {
             ++nickleAmount;
             changeAmount -= 0.05;
+            changeAmount = Double.valueOf(df.format(changeAmount));
         }
-        
+
         System.out.printf("Nickles: %d \n", nickleAmount);
         System.out.printf("Change: %f \n", changeAmount);
-        
-        
-        DecimalFormat df = new DecimalFormat("#.##");
-        changeAmount = Double.valueOf(df.format(changeAmount));
-        
-        while(changeAmount >= 0.01)
-        {
+
+        while (changeAmount >= 0.01) {
             ++pennieAmount;
             changeAmount -= 0.01;
+            changeAmount = Double.valueOf(df.format(changeAmount));
         }
-        
+
         System.out.printf("Pennies: %d \n", pennieAmount);
         System.out.printf("Change: %f \n", changeAmount);
     }
